@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Formulario de contacto de LINUX CORE">
+<title>Contacto | LINUX CORE</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="pagina-interna">
+<!-- ENCABEZADO SEMÁNTICO: marca y enlaces para recorrer el sitio. -->
+<header class="encabezado">
+<a href="index.html" class="logo">LINUX<span>CORE</span></a>
+<nav class="acciones" aria-label="Menú principal">
+<a href="index.html">Inicio</a><a href="productos.html">Productos</a>
+<a href="servicios.html">Servicios</a><a href="contacto.html" aria-current="page">Contacto</a>
+<a href="login.html">Iniciar sesión</a>
+</nav></header>
+<!-- CONTENIDO PRINCIPAL: título e información del formulario de contacto. -->
+<main class="contenido-interno">
+<header class="titulo-interno"><h1>Contáctanos</h1><p>Envíanos tus dudas sobre productos, servicios o compras.</p></header>
+<!-- FORMULARIO: label relaciona cada campo; required, type, minlength y maxlength activan validación nativa del navegador. -->
+<section class="contacto-panel">
+<form id="formContacto">
+<label for="nombreContacto">Nombre completo</label>
+<input id="nombreContacto" name="nombre" type="text" required minlength="3" maxlength="80" placeholder="Escribe tu nombre">
+<label for="correoContacto">Correo electrónico</label>
+<input id="correoContacto" name="correo" type="email" required maxlength="254" placeholder="tucorreo@ejemplo.com">
+<label for="telefonoContacto">Número de teléfono</label>
+<input id="telefonoContacto" name="telefono" type="tel" required inputmode="numeric" maxlength="10" pattern="[0-9]{10}" placeholder="10 dígitos">
+<label for="temaContacto">Motivo de contacto</label>
+<!-- SELECT: obliga a elegir un motivo antes de enviar el formulario. -->
+<select id="temaContacto" name="tema" required>
+<option value="">Selecciona una opción</option><option value="productos">Consulta sobre productos</option>
+<option value="servicios">Consulta sobre servicios</option><option value="compra">Duda sobre una compra</option><option value="otro">Otro</option>
+</select>
+<label for="mensajeContacto">Mensaje</label>
+<!-- TEXTAREA: captura el mensaje y valida longitud mínima y máxima. -->
+<textarea id="mensajeContacto" name="mensaje" rows="6" required minlength="10" maxlength="1000" placeholder="Escribe tu mensaje"></textarea>
+<button class="comprar-carrito" type="submit">Enviar mensaje</button>
+<!-- RESPUESTA: anuncia al usuario el resultado de la validación. -->
+<p id="respuestaContacto" role="status" aria-live="polite"></p>
+</form></section></main>
+<!-- PIE DE PÁGINA: cierre de la página de contacto. -->
+<footer class="footer-pagina"><p>LINUX CORE · © 2026</p></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="main.js"></script>
+</body></html>

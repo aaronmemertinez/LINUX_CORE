@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Recepción de componentes | LINUX CORE</title><link rel="stylesheet" href="admin.css"></head>
+<body>
+<header class="barra"><div class="marca">LINUX <span>CORE</span> · LOGÍSTICA</div><nav class="nav"><a class="activo" href="envios.html">Registrar entrada</a><a href="inventario.html">Inventario y movimientos</a></nav></header>
+<main class="contenedor">
+  <section class="encabezado"><h1>Recepción de componentes</h1><p>Registra los componentes que llegan a LINUX CORE. Cada recepción aumenta las existencias y crea un movimiento de entrada.</p></section>
+  <section class="panel">
+    <h2>Nuevo envío</h2>
+    <form id="formEntrada">
+      <div class="grid-form">
+        <div class="campo ancho"><label for="producto">Componente recibido</label><select id="producto" required><option value="">Cargando catálogo...</option></select></div>
+        <div class="campo"><label for="cantidad">Cantidad recibida</label><input id="cantidad" type="number" min="1" max="10000" step="1" placeholder="Ej. 25" required><span class="ayuda">Solo números enteros, de 1 a 10,000.</span></div>
+        <div class="campo"><label for="motivo">Referencia o motivo</label><input id="motivo" maxlength="200" minlength="3" value="Recepción de componentes" required><span class="ayuda">Puedes indicar proveedor, factura o referencia del envío.</span></div>
+      </div>
+      <div class="acciones"><button class="btn primario" id="guardar" type="submit">Registrar entrada</button><span class="estado" id="estado" role="status"></span></div>
+    </form>
+  </section>
+  <section class="panel"><h2>Antes de registrar</h2><p>La entrada se guarda como un movimiento real, no como dato de prueba. La base de datos suma la cantidad al inventario y conserva la fecha, el componente y el motivo. La operación se ejecuta de forma atómica.</p></section>
+</main><footer class="pie">Panel independiente conectado a Supabase · LINUX CORE</footer>
+<script src="supabase-admin.js"></script>
+<script>
+(async()=>{
+ const producto=document.getElementById('producto'), form=document.getElementById('formEntrada');
+ const estado=document.getElementById('estado'), guardar=document.getElementById('guardar');
+ let data;
+ try { data = await llamarPanel('productos'); }
+ catch(error){ estado.textContent=error.message; return; }
+ producto.innerHTML='<option value="">Selecciona un componente</option>'+data.map(p=>`<option value="${p.id_producto}">${p.nombre}${p.categoria?' · '+p.categoria:''}</option>`).join('');
+ form.addEventListener('submit',async e=>{
+  e.preventDefault(); estado.textContent='';
+  const id=producto.value, cantidad=Number(document.getElementById('cantidad').value), motivo=document.getElementById('motivo').value.trim();
+  if(!id||!Number.isInteger(cantidad)||cantidad<1||cantidad>10000||motivo.length<3){estado.textContent='Revisa los datos del envío.';return}
+  guardar.disabled=true;guardar.textContent='Registrando...';
+  try{
+   const resultado = await llamarPanel('entrada',{id_producto:id,cantidad,motivo});
+   estado.textContent=`Entrada registrada: ${resultado.producto}. Se agregaron ${resultado.cantidad_recibida} unidades. Existencias actuales: ${resultado.existencias_actuales}.`;
+   estado.style.color='#147d68';form.reset();document.getElementById('motivo').value='Recepción de componentes';
+  }catch(err){estado.textContent=err.message||'No se pudo registrar la entrada.';estado.style.color='#b42318'}
+  finally{guardar.disabled=false;guardar.textContent='Registrar entrada'}
+ });
+})();
+</script></body></html>

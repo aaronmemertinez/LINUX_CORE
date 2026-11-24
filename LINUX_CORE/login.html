@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101820">
+    <title>Acceso | LINUX CORE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="login-header">
+        <a class="logo" href="index.html">LINUX<span>CORE</span></a>
+        <nav class="nav-interna" aria-label="Navegación"><a href="index.html">Inicio</a> · <a href="productos.html">Productos</a> · <a href="servicios.html">Servicios</a> · <a href="contacto.html">Contacto</a></nav>
+    </header>
+
+    <main class="login-layout">
+        <section class="login-presentacion">
+            <section class="presentacion-contenido">
+                <span class="etiqueta">TECNOLOGÍA • COMPONENTES • PC</span>
+                <h1>Todo tu mundo<br>de tecnología<br>en un solo lugar.</h1>
+                <p>Accede a tu cuenta LINUX CORE para disfrutar de una experiencia más organizada en nuestra tienda.</p>
+                <section class="presentacion-puntos">
+                    <span><i>✓</i> Acceso a tu cuenta</span>
+                    <span><i>✓</i> Experiencia sencilla</span>
+                    <span><i>✓</i> Tu tienda de componentes</span>
+                </section>
+            </section>
+            <section class="circuito circuito-uno"></section>
+            <section class="circuito circuito-dos"></section>
+            <section class="brillo"></section>
+        </section>
+
+        <section class="login-panel">
+            <section class="panel-top">
+                <span class="mini-logo">LC</span>
+                <span class="panel-marca">LINUX <b>CORE</b></span>
+            </section>
+
+            <section class="selector-modo" role="tablist" aria-label="Tipo de acceso">
+                <button type="button" class="modo activo" id="modoLogin" aria-selected="true">Iniciar sesión</button>
+                <button type="button" class="modo" id="modoRegistro" aria-selected="false">Crear cuenta</button>
+            </section>
+
+            <section id="vistaLogin">
+                <h2>Bienvenido de nuevo</h2>
+                <p class="descripcion">Ingresa tus datos para continuar.</p>
+                <form id="formLogin">
+                    <label for="loginCorreo">Correo electrónico</label>
+                    <section class="campo">
+                        <span>✉</span>
+                        <input id="loginCorreo" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
+                    </section>
+                    <label for="loginPassword">Contraseña</label>
+                    <section class="campo">
+                        <span>●</span>
+                        <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Tu contraseña" required minlength="6">
+                        <button class="mostrar-password" type="button" data-target="loginPassword" aria-label="Mostrar contraseña">◉</button>
+                    </section>
+                    <button class="btn-principal" type="submit">Entrar a mi cuenta <span>→</span></button>
+                </form>
+            </section>
+
+            <section id="vistaRegistro" hidden>
+                <h2>Crea tu cuenta</h2>
+                <p class="descripcion">Regístrate para comenzar en LINUX CORE.</p>
+                <form id="formRegistro">
+                    <label for="registroNombre">Nombre de usuario</label>
+                    <section class="campo">
+                        <span>♙</span>
+                        <input id="registroNombre" type="text" autocomplete="username" placeholder="Tu nombre" required minlength="3" maxlength="40">
+                    </section>
+                    <label for="registroCorreo">Correo electrónico</label>
+                    <section class="campo">
+                        <span>✉</span>
+                        <input id="registroCorreo" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
+                    </section>
+                    <label for="registroPassword">Contraseña</label>
+                    <section class="campo">
+                        <span>●</span>
+                        <input id="registroPassword" type="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres" required minlength="6">
+                        <button class="mostrar-password" type="button" data-target="registroPassword" aria-label="Mostrar contraseña">◉</button>
+                    </section>
+                    <button class="btn-principal" type="submit">Crear mi cuenta <span>→</span></button>
+                </form>
+            </section>
+
+            <section id="mensaje" class="mensaje" role="status" aria-live="polite"></section>
+            <p class="nota-seguridad">LINUX CORE · Acceso de demostración</p>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--azul:#168cff;--azul2:#0878df;--oscuro:#101820;--texto:#eef5fc;--muted:#9aa9b8}
+body{font-family:Arial,Helvetica,sans-serif;min-height:100vh;background:#0b121a;color:var(--texto)}
+.login-header{height:78px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;background:#101820;border-bottom:1px solid #ffffff12}
+.logo{font-size:27px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:.5px}.logo span{color:var(--azul)}
+.volver{color:#c2ceda;text-decoration:none;font-size:14px;transition:.2s}.volver:hover{color:var(--azul)}
+.login-layout{min-height:calc(100vh - 78px);display:grid;grid-template-columns:1.05fr .95fr;max-width:1500px;margin:auto;padding:42px 7%;gap:5%;align-items:center}
+.login-presentacion{position:relative;overflow:hidden;min-height:590px;border-radius:22px;padding:70px 8%;display:flex;align-items:center;background:radial-gradient(ellipse at 75% 25%,#1262a4aa,transparent 38%),linear-gradient(135deg,#172b3d 0%,#101820 58%,#07101a 100%);border:1px solid #ffffff18;box-shadow:0 25px 70px #0008}
+.login-presentacion:before{content:"";position:absolute;width:430px;height:430px;border:1px solid #168cff55;border-radius:50%;right:-120px;top:55px;box-shadow:0 0 0 35px #168cff0c,0 0 0 75px #168cff0a,0 0 90px #168cff20}
+.login-presentacion:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #168cff44;transform:rotate(45deg);right:5%;bottom:-150px;background:linear-gradient(135deg,#168cff10,#ffffff03)}
+.presentacion-contenido{position:relative;z-index:2;max-width:520px}.etiqueta{display:inline-block;color:#66b7ff;font-size:11px;font-weight:bold;letter-spacing:2.5px;margin-bottom:25px}
+.presentacion-contenido h1{font-size:clamp(38px,4.2vw,62px);line-height:1.08;letter-spacing:-1.8px;margin-bottom:24px}
+.presentacion-contenido p{max-width:440px;color:#bdcbd8;font-size:16px;line-height:1.7;margin-bottom:32px}
+.presentacion-puntos{display:grid;gap:14px;color:#dce8f3;font-size:14px}.presentacion-puntos i{font-style:normal;color:#66b7ff;border:1px solid #168cff88;border-radius:50%;width:21px;height:21px;display:inline-grid;place-items:center;margin-right:9px}
+.circuito{position:absolute;z-index:1;border:1px solid #168cff36;transform:rotate(-32deg);pointer-events:none}.circuito-uno{width:300px;height:90px;right:-55px;top:160px}.circuito-dos{width:360px;height:110px;right:-110px;top:275px}.brillo{position:absolute;width:9px;height:9px;border-radius:50%;background:#76c3ff;right:20%;top:30%;box-shadow:0 0 18px 7px #168cff88}
+.login-panel{width:100%;max-width:480px;justify-self:center;padding:42px 40px;background:#121e2a;border:1px solid #ffffff18;border-radius:18px;box-shadow:0 25px 70px #0008}
+.panel-top{display:flex;align-items:center;gap:11px;margin-bottom:34px}.mini-logo{width:36px;height:36px;display:grid;place-items:center;background:linear-gradient(135deg,#168cff,#0759a8);border-radius:9px;font-weight:800}.panel-marca{font-size:13px;letter-spacing:1.5px}.panel-marca b{color:#168cff}
+.selector-modo{display:grid;grid-template-columns:1fr 1fr;padding:4px;background:#0b141e;border-radius:9px;margin-bottom:30px}.modo{border:0;background:transparent;color:#8fa0b0;padding:12px 8px;border-radius:7px;font-size:13px;cursor:pointer}.modo.activo{background:#1b3852;color:#fff;box-shadow:inset 0 0 0 1px #168cff55}
+.login-panel h2{font-size:27px;margin-bottom:9px}.descripcion{color:#91a2b2;font-size:14px;margin-bottom:27px}
+.login-panel label{display:block;color:#c8d5e1;font-size:13px;margin:18px 0 8px}
+.campo{height:49px;display:flex;align-items:center;gap:11px;padding:0 14px;background:#0b141e;border:1px solid #293b4c;border-radius:8px;transition:.2s}.campo:focus-within{border-color:#168cff;box-shadow:0 0 0 3px #168cff18}.campo>span{color:#6d91b0;font-size:15px}
+.campo input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;font-size:14px}.campo input::placeholder{color:#647486}.mostrar-password{border:0;background:none;color:#7f94a8;cursor:pointer;padding:5px}
+.btn-principal{width:100%;margin-top:27px;padding:15px 18px;border:0;border-radius:8px;background:linear-gradient(90deg,#0878df,#168cff);color:#fff;font-weight:bold;font-size:14px;cursor:pointer;transition:.2s}.btn-principal:hover{filter:brightness(1.12);transform:translateY(-1px)}.btn-principal span{float:right;font-size:18px;line-height:14px}
+.mensaje{min-height:22px;margin-top:16px;font-size:13px;line-height:1.5;color:#ff9d9d}.mensaje.exito{color:#75d6a2}
+.nota-seguridad{text-align:center;color:#617487;font-size:11px;margin-top:28px;letter-spacing:.5px}
+[hidden]{display:none!important}
+@media(max-width:900px){.login-layout{grid-template-columns:1fr;padding:30px 5%;gap:25px}.login-presentacion{min-height:330px;padding:45px 7%}.presentacion-contenido h1{font-size:42px}.login-panel{max-width:560px}.login-presentacion:before{right:-190px}}
+@media(max-width:520px){.login-header{height:66px;padding:0 5%}.logo{font-size:23px}.volver{font-size:12px}.login-layout{padding:18px 4% 30px}.login-presentacion{min-height:300px;border-radius:15px;padding:35px 25px}.presentacion-contenido h1{font-size:36px}.presentacion-contenido p{font-size:14px}.login-panel{padding:30px 22px;border-radius:15px}.login-panel h2{font-size:24px}}

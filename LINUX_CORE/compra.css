@@ -1,0 +1,718 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f5f8;
+    color: #202a35;
+}
+
+:root {
+    --azul: #0878df;
+    --azul-oscuro: #101820;
+    --gris: #687482;
+    --borde: #e0e5eb;
+}
+
+/* ENCABEZADO */
+
+.header {
+    background: var(--azul-oscuro);
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.logo span {
+    color: #168cff;
+}
+
+.volver {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* CONTENEDOR */
+
+.contenedor {
+    width: 85%;
+    max-width: 1250px;
+    margin: 40px auto;
+}
+
+.introduccion {
+    margin-bottom: 30px;
+}
+
+.introduccion h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.introduccion p,
+.subtitulo {
+    color: var(--gris);
+}
+
+/* DISTRIBUCIÓN */
+
+.contenido-compra {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+/* PANELES */
+
+.panel {
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 3px 12px #00000008;
+}
+
+.panel h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* PRODUCTOS */
+
+.producto-carrito {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--borde);
+}
+
+.producto-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.producto-info h3 {
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.producto-info p {
+    color: var(--gris);
+    font-size: 13px;
+}
+
+.producto-precio {
+    font-weight: bold;
+    color: var(--azul);
+    white-space: nowrap;
+}
+
+.cantidad-controles {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 10px;
+}
+
+.cantidad-controles button {
+    border: 1px solid var(--borde);
+    background: #f5f7fa;
+    width: 27px;
+    height: 27px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.eliminar {
+    border: none;
+    background: none;
+    color: #d33b3b;
+    cursor: pointer;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.carrito-vacio {
+    text-align: center;
+    padding: 35px 10px;
+}
+
+.carrito-vacio p {
+    color: var(--gris);
+    margin: 12px 0;
+}
+
+.boton-volver {
+    display: inline-block;
+    background: var(--azul);
+    color: white;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+}
+
+/* TOTALES */
+
+.totales {
+    margin-top: 25px;
+}
+
+.fila-total {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0;
+    font-size: 15px;
+}
+
+.gratis {
+    color: #159447;
+}
+
+.total-final {
+    border-top: 1px solid var(--borde);
+    padding-top: 20px;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.total-final strong {
+    color: var(--azul);
+    font-size: 23px;
+}
+
+.aviso-envio {
+    background: #eaf7ee;
+    color: #198447;
+    padding: 14px;
+    text-align: center;
+    border-radius: 7px;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* FORMULARIO */
+
+.campo {
+    margin-bottom: 22px;
+}
+
+.campo label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 9px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d5dce4;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    color: #202a35;
+    transition: border-color 0.2s;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: var(--azul);
+}
+
+.campo textarea {
+    resize: vertical;
+}
+
+/* VALIDACIÓN VERDE */
+
+.campo input.valido,
+.campo select.valido,
+.campo textarea.valido {
+    border: 1.5px solid #42b883;
+    box-shadow: 0 0 3px #42b88340;
+    animation: brilloVerde 1.5s ease-out;
+}
+
+@keyframes brilloVerde {
+    0% {
+        box-shadow: 0 0 7px #42b88370;
+    }
+
+    100% {
+        box-shadow: 0 0 2px #42b88320;
+    }
+}
+
+/* VALIDACIÓN ROJA */
+
+.campo input.invalido,
+.campo select.invalido,
+.campo textarea.invalido {
+    border: 1.5px solid #e57373;
+    box-shadow: 0 0 3px #e5737340;
+}
+
+/* MENSAJES */
+
+.mensaje-validacion {
+    display: block;
+    font-size: 11px;
+    margin-top: 7px;
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+.error-campo {
+    color: #d66b6b;
+}
+
+.correcto-campo {
+    color: #369b70;
+}
+
+.mensaje-validacion:empty {
+    display: none;
+}
+
+/* INFORMACIÓN DE ENVÍO */
+
+.informacion-envio {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: #f0f6ff;
+    border-radius: 7px;
+    margin: 25px 0;
+}
+
+.informacion-envio strong {
+    font-size: 14px;
+}
+
+.informacion-envio p {
+    color: var(--gris);
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* BOTÓN */
+
+.btn-compra {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    background: var(--azul);
+    color: white;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-compra:hover:not(:disabled) {
+    background: #005bb5;
+    transform: translateY(-2px);
+}
+
+.btn-compra:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* MENSAJES GENERALES */
+
+.mensaje {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.mensaje.error {
+    color: #cf3434;
+}
+
+.mensaje.exito {
+    color: #168447;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--azul-oscuro);
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    line-height: 1.9;
+}
+
+footer strong {
+    color: #168cff;
+    font-size: 20px;
+}
+
+footer p {
+    font-size: 13px;
+}
+
+footer small {
+    color: #aeb8c2;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .contenido-compra {
+        grid-template-columns: 1fr;
+    }
+
+    .contenedor {
+        width: 92%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 18px 5%;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .volver {
+        font-size: 12px;
+    }
+
+    .contenedor {
+        margin: 25px auto;
+    }
+
+    .introduccion h1 {
+        font-size: 26px;
+    }
+
+    .panel {
+        padding: 19px;
+    }
+}
+
+
+
+/* CORRECCIONES DE FORMULARIO Y AJUSTE DE PANELES */
+.contenido-compra {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    width: 100%;
+}
+
+.contenido-compra > .panel {
+    min-width: 0;
+}
+
+.formulario-panel form {
+    width: 100%;
+    min-width: 0;
+}
+
+.formulario-panel .campo {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 22px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.formulario-panel .campo label {
+    display: block;
+    width: 100%;
+    color: #263746;
+    margin: 0 0 9px;
+}
+
+.formulario-panel .campo input,
+.formulario-panel .campo select,
+.formulario-panel .campo textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 46px;
+    flex: none;
+    padding: 13px 14px;
+    margin: 0;
+    background: #ffffff;
+    color: #202a35;
+    border: 1px solid #d5dce4;
+    border-radius: 6px;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.4;
+    box-shadow: none;
+    outline: none;
+    pointer-events: auto;
+}
+
+.formulario-panel .campo textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.formulario-panel .campo input::placeholder,
+.formulario-panel .campo textarea::placeholder {
+    color: #7b8794;
+    opacity: 1;
+}
+
+.formulario-panel .campo input:focus,
+.formulario-panel .campo select:focus,
+.formulario-panel .campo textarea:focus {
+    border-color: #0878df;
+    box-shadow: 0 0 0 3px #0878df20;
+    outline: none;
+}
+
+.formulario-panel .campo input.valido,
+.formulario-panel .campo select.valido,
+.formulario-panel .campo textarea.valido {
+    border: 1.5px solid #42b883;
+    background: #ffffff;
+    color: #202a35;
+}
+
+.formulario-panel .campo input.invalido,
+.formulario-panel .campo select.invalido,
+.formulario-panel .campo textarea.invalido {
+    border: 1.5px solid #e57373;
+    background: #ffffff;
+    color: #202a35;
+}
+
+.formulario-panel .mensaje-validacion {
+    display: block;
+    min-height: 0;
+}
+
+.formulario-panel .mensaje-validacion:empty {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .contenido-compra {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor {
+        width: 92%;
+    }
+
+    .contenido-compra > .panel {
+        padding: 19px;
+    }
+}
+
+/* =========================================
+   CORRECCION DEFINITIVA DE TEXTOS
+========================================= */
+
+/* Mantener todos los elementos dentro de su espacio */
+.formulario-panel,
+.formulario-panel * {
+    box-sizing: border-box;
+}
+
+.formulario-panel form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    overflow: visible;
+}
+
+/* Cada campo ocupa su propia fila */
+.formulario-panel .campo {
+    display: flex;
+    flex-direction: column;
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0 0 25px !important;
+    padding: 0 !important;
+    overflow: visible;
+}
+
+/* Etiquetas */
+.formulario-panel .campo label {
+    display: block;
+    position: static;
+    width: 100%;
+    margin: 0 0 12px !important;
+    padding: 0;
+    color: #263746;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+/* Recuadros */
+.formulario-panel .campo input,
+.formulario-panel .campo select,
+.formulario-panel .campo textarea {
+    display: block;
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 48px;
+    margin: 0;
+    padding: 13px 15px;
+    background: #ffffff;
+    color: #202a35;
+    border: 1px solid #d5dce4;
+    border-radius: 7px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    box-shadow: none;
+}
+
+/* Área de referencias */
+.formulario-panel .campo textarea {
+    min-height: 120px;
+    height: 120px;
+    resize: vertical;
+}
+
+/* Mensajes de validación */
+.formulario-panel .mensaje-validacion {
+    display: block;
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 8px 0 0 !important;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.formulario-panel .mensaje-validacion:empty {
+    display: none;
+}
+
+/* Colores de validación */
+.formulario-panel .error-campo {
+    color: #d33b3b;
+}
+
+.formulario-panel .correcto-campo {
+    color: #198447;
+}
+
+/* Información de entrega: debajo de referencias */
+.formulario-panel .informacion-envio {
+    display: flex;
+    position: static;
+    clear: both;
+    flex: none;
+    width: 100%;
+    height: auto;
+    min-height: 70px;
+    margin: 0 0 25px !important;
+    padding: 16px;
+    background: #f0f6ff;
+    border-radius: 7px;
+    gap: 12px;
+    overflow: visible;
+}
+
+/* Texto de entrega */
+.formulario-panel .informacion-envio strong {
+    display: block;
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.formulario-panel .informacion-envio p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Botón de confirmar */
+.formulario-panel .btn-compra {
+    display: block;
+    position: static;
+    flex: none;
+    width: 100%;
+    height: auto;
+    min-height: 52px;
+    margin: 0 !important;
+    padding: 15px;
+    border: none;
+    border-radius: 7px;
+    line-height: 1.5;
+    white-space: normal;
+    transform: none;
+}
+
+/* Mensaje después del botón */
+.formulario-panel #mensajeFormulario {
+    display: block;
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 15px 0 0;
+    line-height: 1.5;
+}
+
+/* Evitar desbordamientos en celulares */
+@media (max-width: 480px) {
+    .formulario-panel .campo {
+        margin-bottom: 22px !important;
+    }
+
+    .formulario-panel .campo textarea {
+        min-height: 110px;
+        height: 110px;
+    }
+
+    .formulario-panel .informacion-envio {
+        margin-bottom: 20px !important;
+    }
+}

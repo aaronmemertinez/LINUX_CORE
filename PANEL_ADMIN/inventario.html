@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inventario y actividad | LINUX CORE</title><link rel="stylesheet" href="admin.css"></head>
+<body>
+<header class="barra"><div class="marca">LINUX <span>CORE</span> · LOGÍSTICA</div><nav class="nav"><a href="envios.html">Registrar entrada</a><a class="activo" href="inventario.html">Inventario y movimientos</a></nav></header>
+<main class="contenedor">
+ <section class="encabezado"><h1>Inventario y actividad</h1><p>Existencias actuales, últimos movimientos y compras recientes registradas en LINUX CORE.</p></section>
+ <section class="panel"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><h2>Existencias por componente</h2><button class="btn primario" id="actualizar">Actualizar datos</button></div><div class="tabla-wrap"><table><thead><tr><th>Componente</th><th>Categoría</th><th>Existencias</th><th>Stock mínimo</th><th>Estado</th></tr></thead><tbody id="tablaInventario"><tr><td colspan="5">Cargando inventario...</td></tr></tbody></table></div></section>
+ <section class="panel"><h2>Últimas 5 entradas y salidas</h2><div id="movimientos" class="lista-desplegable"><p class="vacio">Cargando movimientos...</p></div></section>
+ <section class="panel"><h2>Últimas 2 compras</h2><div id="compras" class="lista-desplegable"><p class="vacio">Cargando compras...</p></div></section>
+ <p class="estado" id="estado" role="status"></p>
+</main><footer class="pie">Panel independiente conectado a Supabase · LINUX CORE</footer>
+<script src="supabase-admin.js"></script>
+<script>
+const fecha=v=>new Date(v).toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short'});
+const moneda=v=>new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN'}).format(Number(v||0));
+const seguro=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function cargar(){
+ const estado=document.getElementById('estado');estado.textContent='Actualizando...';estado.style.color='';
+ let data;
+ try { data = await llamarPanel('panel'); }
+ catch(error){ estado.textContent=error.message;estado.style.color='#b42318';return }
+ const inventario=data.inventario||[], movimientos=data.movimientos||[], compras=data.compras||[];
+ document.getElementById('tablaInventario').innerHTML=inventario.map(p=>`<tr><td><strong>${seguro(p.nombre)}</strong><br><small>${seguro(p.sku||'')}</small></td><td>${seguro(p.categoria||'—')}</td><td class="numero">${p.existencias}</td><td>${p.stock_minimo}</td><td><span class="etiqueta ${p.existencias<=p.stock_minimo?'bajo':'bien'}">${p.existencias<=p.stock_minimo?'Stock bajo':'Disponible'}</span></td></tr>`).join('')||'<tr><td colspan="5">No hay productos activos.</td></tr>';
+ document.getElementById('movimientos').innerHTML=movimientos.map((m,i)=>`<details><summary><span>${m.tipo_movimiento==='entrada'?'📥 Entrada':'📤 Salida'} · ${seguro(m.producto)} · ${m.cantidad} unidades</span><span>${fecha(m.fecha)}</span></summary><div class="detalle"><p><strong>Tipo:</strong> ${m.tipo_movimiento==='entrada'?'Entrada al inventario':'Salida del inventario'}</p><p><strong>Componente:</strong> ${seguro(m.producto)}</p><p><strong>Cantidad:</strong> ${m.cantidad}</p><p><strong>Motivo:</strong> ${seguro(m.motivo||'Sin especificar')}</p>${m.id_venta?`<p><strong>Venta asociada:</strong> ${seguro(m.id_venta)}</p>`:''}</div></details>`).join('')||'<p class="vacio">Todavía no hay entradas o salidas reales registradas.</p>';
+ document.getElementById('compras').innerHTML=compras.map(v=>`<details><summary><span>Compra · ${fecha(v.fecha)}</span><span>${moneda(v.total)}</span></summary><div class="detalle"><p><strong>Folio:</strong> ${seguro(v.id_venta)}</p><p><strong>Estado:</strong> ${seguro(v.estado)}</p><p><strong>Total:</strong> ${moneda(v.total)}</p><strong>Componentes comprados:</strong><ul>${(v.detalles||[]).map(d=>`<li>${seguro(d.producto)} — ${d.cantidad} pza(s) × ${moneda(d.precio_unitario)} = ${moneda(d.subtotal)}</li>`).join('')||'<li>Sin detalle de productos.</li>'}</ul></div></details>`).join('')||'<p class="vacio">Todavía no hay compras reales registradas.</p>';
+ estado.textContent=`Datos actualizados. ${inventario.length} componentes en inventario.`;
+ estado.style.color='#147d68';
+}
+(async()=>{document.getElementById('actualizar').addEventListener('click',cargar);await cargar()})();
+</script></body></html>

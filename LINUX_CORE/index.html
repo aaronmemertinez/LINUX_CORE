@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINUX CORE | Tienda de Componentes PC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ENCABEZADO: marca, buscador y enlaces principales del sitio. -->
+    <header class="encabezado">
+        <a href="#" class="logo">LINUX<span>CORE</span></a>
+
+        <button class="menu-hamburguesa" id="btnMenu" type="button"
+                aria-label="Abrir menú de navegación" aria-expanded="false"
+                aria-controls="menuNavegacion">
+            <span></span><span></span><span></span>
+        </button>
+
+        <form class="buscador" id="searchForm">
+            <input type="search" id="searchInput" placeholder="¿Qué componente buscas hoy?">
+            <button type="submit" aria-label="Buscar">🔍</button>
+        </form>
+
+        <section class="acciones" id="menuNavegacion">
+            <a href="productos.html">Productos</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="#carrito">Carrito (<span id="cartCount">0</span>)</a>
+            <a href="login.html">Iniciar sesión</a>
+        </section>
+    </header>
+
+    <!-- NAVEGACIÓN: enlaces a las secciones y páginas del catálogo. -->
+    <nav class="menu">
+        <a href="#">Inicio</a>
+        <a href="productos.html">Componentes</a>
+        <a href="productos.html">Procesadores</a>
+        <a href="productos.html">Tarjetas gráficas</a>
+        <a href="productos.html">Almacenamiento</a>
+        <a href="#carrito">Mi carrito</a>
+        <a href="login.html" class="menu-login">Iniciar sesión</a>
+    </nav>
+
+    <main>
+
+        <!-- =================================
+             NUEVA PORTADA PRINCIPAL
+        ================================== -->
+
+        <!-- LANDING PAGE / PORTADA: presentación principal y acceso al catálogo. -->
+        <section class="portada-principal">
+
+            <section class="portada-superior">
+                <span class="portada-logo">
+                    LINUX<span>CORE</span>
+                </span>
+
+                <nav class="portada-menu">
+                    <a href="#">Inicio</a>
+                    <a href="#productos">Productos</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+            </section>
+
+            <section class="portada-contenido">
+                <h1>LINUX CORE</h1>
+
+                <p>TECNOLOGÍA • POTENCIA • INNOVACIÓN</p>
+
+                <a href="#productos" class="portada-boton">
+                    EXPLORAR PRODUCTOS
+                </a>
+            </section>
+
+            <section class="portada-redes">
+                <span>PC COMPONENTS STORE</span>
+                <span>© LINUX CORE 2026</span>
+            </section>
+
+        </section>
+
+        <!-- =================================
+             BANNER ORIGINAL
+        ================================== -->
+
+        <!-- BANNER: combina texto promocional e imagen destacada. -->
+        <section class="banner">
+            <section class="banner-texto">
+                <h1>Somos tu mejor opción</h1>
+
+                <p>
+                    Explora nuestro configurador de PC y nuestra amplia gama
+                    de componentes para encontrar la combinación perfecta.
+                    También puedes optar por nuestra colección Alchemy Force
+                    de PCs personalizables y ajustarlas según tus necesidades.
+                    ¡Crea tu PC perfecta con nosotros!
+                </p>
+
+                <a href="#productos" class="boton">Ver productos</a>
+            </section>
+
+            <section class="banner-imagen">
+                <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=85"
+                     alt="Computadora gamer">
+            </section>
+        </section>
+
+        <!-- CATEGORÍAS -->
+
+        <section class="categorias">
+            <h2>Descubre nuestras categorías</h2>
+
+            <section class="categorias-grid">
+                <a href="#productos">Procesadores</a>
+                <a href="#productos">Tarjetas gráficas</a>
+                <a href="#productos">Memorias RAM</a>
+                <a href="#productos">Discos SSD</a>
+                <a href="#productos">Tarjetas madre</a>
+                <a href="#productos">Gabinetes</a>
+            </section>
+        </section>
+
+        <!-- PRODUCTOS -->
+
+        <section class="productos" id="productos">
+
+            <section class="titulo-productos">
+                <h2>Componentes destacados</h2>
+
+                <p>
+                    Recibe tus productos de tecnología directamente
+                    en tu puerta, de forma rápida y segura.
+                </p>
+            </section>
+
+            <!-- CATÁLOGO: cada producto se agrupa en un article independiente. -->
+            <section class="productos-grid">
+
+                <article class="producto" data-id="0">
+                    <img src="https://images.unsplash.com/photo-1555617981-dac3880eac6e?auto=format&fit=crop&w=500&q=80"
+                         alt="Procesador AMD Ryzen 5 5600">
+                    <h3>Procesador AMD Ryzen 5 5600</h3>
+                    <p class="precio">$2,199 MXN</p>
+                    <button class="comprar" type="button">Agregar al carrito</button>
+                </article>
+
+                <article class="producto" data-id="1">
+                    <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=500&q=80"
+                         alt="Tarjeta gráfica NVIDIA RTX 4060">
+                    <h3>Tarjeta gráfica NVIDIA RTX 4060</h3>
+                    <p class="precio">$6,499 MXN</p>
+                    <button class="comprar" type="button">Agregar al carrito</button>
+                </article>
+
+                <article class="producto" data-id="2">
+                    <img src="https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=500&q=80"
+                         alt="Memoria RAM Corsair">
+                    <h3>Memoria RAM Corsair 16GB DDR4</h3>
+                    <p class="precio">$799 MXN</p>
+                    <button class="comprar" type="button">Agregar al carrito</button>
+                </article>
+
+                <article class="producto" data-id="3">
+                    <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=500&q=80"
+                         alt="SSD Kingston">
+                    <h3>SSD Kingston 1TB</h3>
+                    <p class="precio">$1,299 MXN</p>
+                    <button class="comprar" type="button">Agregar al carrito</button>
+                </article>
+
+                <article class="producto" data-id="4">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80"
+                         alt="Tarjeta madre ASUS">
+                    <h3>Tarjeta madre ASUS B550</h3>
+                    <p class="precio">$2,099 MXN</p>
+                    <button class="comprar" type="button">Agregar al carrito</button>
+                </article>
+
+                <article class="producto" data-id="5">
+                    <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=500&q=80"
+                         alt="Fuente de poder">
+                    <h3>Fuente de poder 650W</h3>
+                    <p class="precio">$1,099 MXN</p>
+                    <button class="comprar" type="button">Agregar al carrito</button>
+                </article>
+
+                <article class="producto" data-id="6">
+                    <img src="https://images.unsplash.com/photo-1587202372616-b43abea06c2a?auto=format&fit=crop&w=500&q=80"
+                         alt="Gabinete Gamer">
+                    <h3>Gabinete Gamer RGB</h3>
+                    <p class="precio">$1,599 MXN</p>
+                    <button class="comprar" type="button">Agregar al carrito</button>
+                </article>
+
+                <article class="producto" data-id="7">
+                    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=500&q=80"
+                         alt="Disipador Cooler Master">
+                    <h3>Disipador Cooler Master</h3>
+                    <p class="precio">$899 MXN</p>
+                    <button class="comprar" type="button">Agregar al carrito</button>
+                </article>
+
+                <article class="producto" data-id="8">
+                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=500&q=80"
+                         alt="Monitor Gamer">
+                    <h3>Monitor Gamer 24 pulgadas</h3>
+                    <p class="precio">$2,499 MXN</p>
+                    <button class="comprar" type="button">Agregar al carrito</button>
+                </article>
+
+                <article class="producto" data-id="9">
+                    <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=500&q=80"
+                         alt="Teclado mecánico RGB">
+                    <h3>Teclado Mecánico RGB</h3>
+                    <p class="precio">$699 MXN</p>
+                    <button class="comprar" type="button">Agregar al carrito</button>
+                </article>
+
+            </section>
+
+            <p id="sinResultados" class="sin-resultados" hidden>
+                No se encontraron productos.
+            </p>
+
+        </section>
+
+        <!-- CARRITO -->
+
+        <section class="carrito-seccion" id="carrito">
+
+            <h2>Mi carrito de compras</h2>
+
+            <p class="subtitulo-carrito">
+                Aquí encontrarás los componentes que has seleccionado.
+            </p>
+
+            <section id="carritoVacio" class="carrito-vacio">
+
+                <section class="icono-carrito">
+                    aun no tienes nada :(
+                </section>
+
+                <h3>Tu carrito está vacío</h3>
+
+                <p>Agrega algunos componentes para comenzar tu compra.</p>
+
+                <a href="#productos" class="boton">Explorar productos</a>
+
+            </section>
+
+            <section id="carritoContenido" hidden>
+
+                <section id="listaCarrito" class="lista-carrito"></section>
+
+                <section class="total-carrito">
+
+                    <section>
+                        <p>Total de compra:</p>
+                        <h3 id="totalPrecio">$0 MXN</h3>
+                    </section>
+
+                    <section class="botones-compra">
+
+                        <button id="comprarCarrito"
+                                class="comprar-carrito"
+                                type="button">
+                            COMPRAR
+                        </button>
+
+                        <button id="vaciarCarrito"
+                                class="vaciar-btn"
+                                type="button">
+                            Vaciar carrito
+                        </button>
+
+                    </section>
+
+                </section>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <!-- NOTIFICACIÓN -->
+
+    <section id="notificacion"
+         class="notificacion"
+         role="status"
+         aria-live="polite">
+    </section>
+
+    <!-- MODAL DE PRODUCTO -->
+
+    <section id="modalProducto"
+         class="modal-producto"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalNombre">
+
+        <section class="modal-contenido">
+
+            <button id="cerrarModal"
+                    class="cerrar-modal"
+                    type="button"
+                    aria-label="Cerrar ventana">
+                &times;
+            </button>
+
+            <img id="modalImagen" src="" alt="">
+
+            <section class="modal-info">
+
+                <h2 id="modalNombre"></h2>
+
+                <p id="modalDescripcion"></p>
+
+                <section class="especificaciones">
+
+                    <h3>Características del producto</h3>
+
+                    <ul id="modalCaracteristicas"></ul>
+
+                </section>
+
+                <h3 id="modalPrecio"></h3>
+
+                <section class="botones-modal">
+
+                    <button id="modalAgregar"
+                            class="comprar"
+                            type="button">
+                        Agregar al carrito
+                    </button>
+
+                    <button id="modalComprar"
+                            class="comprar-ahora"
+                            type="button">
+                        COMPRAR AHORA
+                    </button>
+
+                </section>
+
+            </section>
+
+        </section>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <!-- PIE DE PÁGINA: información de la tienda y contacto. -->
+    <footer id="contacto">
+
+        <section class="footer-contenido">
+
+            <h2>LINUX <span>CORE</span></h2>
+
+            <p>Tu tienda de confianza en componentes para PC.</p>
+
+            <p>Contacto: linuxcore@gmail.com</p>
+
+        </section>
+
+        <section class="footer-final">
+            © 2026 LINUX CORE | ing aaron y nata
+        </section>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
