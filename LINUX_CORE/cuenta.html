@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101820">
+<title>Mi cuenta | LINUX CORE</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.cuenta-wrap{max-width:560px;margin:55px auto;padding:0 18px}
+.cuenta-card{background:#fff;border-radius:14px;padding:clamp(22px,5vw,38px);box-shadow:0 8px 30px #10182012}
+.cuenta-card h1{margin:0 0 8px;color:#101820}.cuenta-card .intro{color:#657080;margin:0 0 25px}
+.cuenta-card label{display:block;font-weight:600;margin:16px 0 7px}
+.cuenta-card input{box-sizing:border-box;width:100%;padding:13px;border:1px solid #cfd5dd;border-radius:7px;font:inherit}
+.cuenta-actions{display:grid;gap:12px;margin-top:22px}
+.cuenta-actions button{border:0;border-radius:7px;padding:13px;font:inherit;font-weight:700;cursor:pointer}
+.btn-actualizar{background:#0878df;color:white}.btn-salir{background:#edf1f5;color:#101820}
+#cuentaMensaje{min-height:24px;margin-top:15px;color:#b42318}#cuentaMensaje.exito{color:#137a42}
+.cuenta-correo{font-size:14px;color:#657080;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<header class="encabezado">
+<a href="index.html" class="logo">LINUX<span>CORE</span></a>
+<nav class="acciones" aria-label="Navegación">
+<a href="index.html">Inicio</a><a href="productos.html">Productos</a><a href="servicios.html">Servicios</a><a href="contacto.html">Contacto</a>
+</nav>
+</header>
+<main class="cuenta-wrap">
+<section class="cuenta-card">
+<h1>Mi cuenta</h1>
+<p class="cuenta-correo" id="cuentaCorreo">Verificando sesión…</p>
+<p class="intro">Actualiza la contraseña de tu cuenta o cierra tu sesión.</p>
+<form id="formCambiarPassword">
+<label for="passwordActual">Contraseña actual</label>
+<input id="passwordActual" type="password" autocomplete="current-password" required>
+<label for="passwordNueva">Nueva contraseña</label>
+<input id="passwordNueva" type="password" autocomplete="new-password" minlength="6" required>
+<label for="passwordConfirmar">Confirmar nueva contraseña</label>
+<input id="passwordConfirmar" type="password" autocomplete="new-password" minlength="6" required>
+<div class="cuenta-actions">
+<button class="btn-actualizar" id="btnActualizar" type="submit">Cambiar contraseña</button>
+<button class="btn-salir" id="btnCerrarSesion" type="button">Cerrar sesión</button>
+</div>
+<p id="cuentaMensaje" role="status" aria-live="polite"></p>
+</form>
+</section>
+</main>
+<footer class="footer-pagina"><p>© 2026 LINUX CORE. Todos los derechos reservados.</p></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="cuenta.js"></script>
+</body>
+</html>
